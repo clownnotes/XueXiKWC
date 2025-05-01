@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <!-- 意思是这个页面主要用中文查看 -->
+  <head>
+    <!-- 意思是游览器在阅读的时候，优先会看这个<head>属性，了解自己该怎么阅读 -->
+    <meta charset="UTF-8" />
+    <!-- 意思是用UTF-8 这个格式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的第一个 html 带有各种注释</title>
+    <!-- 可在此添加CSS样式表 -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+     <link rel="stylesheet" type="text/css" href="测试做一个官网.css"
+    <style>
+      p {
+        color: blueviolet;
+      }
+      .ceshiclassshuxing {
+        color: bisque;
+      }
+    </style>
+    <!-- 整体的样式修改，以上含义是 p标签整体更换。 -->
+  </head>
+  <body>
+    <div>
+      <p>按下 command+d会同时选择更多相同字符，方便同时改</p>
+    </div>
+    <div style="background-color: #f1f1f1; text-align: center; padding: 40px">
+      <img src="./惠发现appLOGO.png" alt="whl" width="80px" heigth="80px" />
+    </div>
+    <!-- 13 style指的是这个 div 的属性；
+       14 background-color指的是底色；
+       15 text-align:center指居中
+       16 padding指增加内边框的尺寸
+    -->
+    <div
+      style="
+        max-width: 700px;
+        margin: 30px auto;
+        padding: 15px;
+        line-height: 1.7;
+      "
+    >
+      <p style="color: #d04dd0">我是小白</p>
+      <p>网站中间的介绍内容2</p>
+      <p class="ceshiclassshuxing">网站中间的介绍内容3</p>
+      <p>网站中间的介绍内容4</p>
+    </div>
+    <div style="background-color: #f1f1f1; text-align: center; padding: 12px">
+      <p>版权说明</p>
+      <a href="www.baicl.cc">我们的官网</a>
+    </div>
+  </body>
+</html>
+<!-- heml 就像是我们人的身体也就是结构
+ css相当于是衣服，也就是样式
+ 加上交流互动也就是 js相当于交互，就组成了一个html 
+ css是层叠样式表的缩写：Cascading Style Sheets
+ -->

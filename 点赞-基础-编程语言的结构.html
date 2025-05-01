@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="dzs" onclick="dianZan()">0</button>
+    <!-- 先给id定义一个值，当鼠标点击这个标签时，就会调用里面这个函数 -->
+    <script>
+      // js的代码可以写在<script>标签内
+      function dianZan() {
+        // 点赞函数的计算过程是
+        let dianZanShuBiaoQian = window.document.getElementById("dzs");
+        //先用游览器自带的函数，获取到点赞数标签，然后放在点赞数标签这个数据里。右边赋予的值是-窗口.
+        // 文档.get(获取)element(元素)by(通过)id(id 属性)，获取到这个标签
+        let dianZanShu = parseInt(dianZanShuBiaoQian.innerText);
+        //声明一个点赞数的数据，用 parseInt 这函数，把标签里这个函数转化成数字。
+        // inner是内部，text是文字,parse是转化，int 是整数
+        //为什么要这么做？因为游览器的逻辑，文字和数字不能相加，所以要先通过声明，变成数字。
+        let xinShuZhi = dianZanShu + 1;
+        //新数值是点赞数+1
+        dianZanShuBiaoQian.innerText = xinShuZhi;
+        //意思就是点赞数赋予一个新的数值。
+        return;
+      }
+    </script>
+  </body>
+</html>
