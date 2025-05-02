@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex 布局</title>
+  </head>
+  <!--style 标签在 HTML 中用于定义文档的样式信息，通过嵌入 CSS（层叠样式表）代码，控制网页的布局、颜色、字体等外观方面。-->
+  <style>
+    body {
+      /* 外边距归零 */
+      margin: 0;
+      /* vh 是指浏览器的视口高度,100 是百分比 */
+      height: 100vh;
+      background-color: #eee;
+    }
+    /*
+    * {
+      给所有盒子加一个 1px的边框,方便查看
+      border: 1px solid black;
+    } */
+    /* class选择了 flex 就是 flex 布局的显示方式*/
+    .flex {
+      display: flex;
+    }
+    .baiSe {
+      background-color: white;
+    }
+    /* 主区域要占满除了侧边栏外的所有地方,所以给他一个属性是 1 */
+    .flex1 {
+      flex: 1;
+    }
+    /* 竖向的 flex布局,后面准备给主区域加上*/
+    .column {
+      flex-direction: column;
+    }
+    /* 上下左右边距 8 px*/
+    .mg8 {
+      margin: 8px;
+    }
+    /* 右边距 8px */
+    .mgr8 {
+      margin-right: 8px;
+    }
+    /* 上边距 8px */
+    .mgt8 {
+      margin-top: 8px;
+    }
+    /* 把阴影给到所有白色盒子的 shadow 样式,为了让这个更好看 */
+    .yinYing {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .daoHang {
+      padding: 10px 20px;
+      border-bottom: 1px solid rgb(190, 190, 190);
+      font-size: 14px;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .ceBian {
+        display: none;
+      }
+    }
+  </style>
+  <body class="flex">
+    <!-- 侧边栏 -->
+    <div style="width: 200px; z-index: 2" class="baiSe yinYing">
+      <!-- 头像栏 美化一下加一点内边距 padding,主轴交叉轴都要居中对齐-->
+      <div
+        style="
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #999;
+        "
+        class="flex"
+      >
+        <img
+          src="https://www.baicl.cc/common/upload/team/2025/03/05/155426z9.png"
+          alt="laobai"
+          width="40px"
+          height="40px"
+        />
+        <div style="margin-left: 10px">老白</div>
+      </div>
+      <!-- 导航栏 -->
+      <div class="flex1 mgt8">
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+        <div class="daoHang">导航</div>
+      </div>
+    </div>
+    <!-- (1)主区域,主内容区,给个大盒子,并且是竖向的flex 布局形式-->
+    <div class="flex1 flex column">
+      <!-- (1)现在开始写头部栏目 高度是 60px,底色是白色-->
+      <div style="height: 60px; z-index: 1" class="baiSe yinYing"></div>
+      <!--(2) 内容区,现在开始写内容栏目 -->
+      <div style="overflow: auto" class="flex1 flex">
+        <!-- 由于内容区明显是一个从头开始的横向盒子,所以我们可以分为左区和右区
+       下面开始把左右区分出来-->
+        <!-- 下面是左区 左区域是竖向的,所以应该在css里加class="flex column"-->
+        <div style="flex: 3" class="flex column mg8">
+          <!--左侧数据区,横向-->
+          <div class="flex">
+            <!--数据区 高度是 100px占据相同的 flex 布局-->
+            <div style="height: 100px" class="flex1 baiSe mgr8 yinYing"></div>
+            <div style="height: 100px" class="flex1 baiSe mgr8 yinYing"></div>
+            <div style="height: 100px" class="flex1 baiSe mgr8 yinYing"></div>
+            <div style="height: 100px" class="flex1 baiSe mgr8 yinYing"></div>
+            <div style="height: 100px" class="flex1 baiSe yinYing"></div>
+          </div>
+          <!--左侧列表区-->
+          <div class="flex column">
+            <!--列表项-->
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+            <div style="height: 160px" class="baiSe mgt8 yinYing"></div>
+          </div>
+        </div>
+        <!-- 下面是右区 右边区域也是竖向的,所以应该在css里加class="flex column"-->
+        <div style="flex: 1" class="flex column mgt8">
+          <!--右侧提示区-->
+          <div style="height: 150px" class="baiSe yinYing"></div>
+          <!--右侧消息区-->
+          <div style="height: 300px" class="baiSe mgt8 yinYing"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
